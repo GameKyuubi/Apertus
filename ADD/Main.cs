@@ -10,20 +10,16 @@ using System.Security.Cryptography;
 using System.Web;
 using BitcoinNET.RPCClient;
 using ADD.Tools;
-using System.Threading;
-using System.Windows.Media;
 using System.Text.RegularExpressions;
 using Secp256k1;
 using System.Numerics;
-using Microsoft.Win32;
-using System.ComponentModel;
 using System.Drawing.Imaging;
 using System.Diagnostics;
 
 
 namespace ADD
 {
-    
+
     public partial class Main : Form
     {
 
@@ -79,8 +75,6 @@ namespace ADD
         List<string> batchList = new List<string>();
         static readonly object _batchLocker = new object();
         static readonly object _buildLocker = new object();
-        GlyphTypeface glyphTypeface = new GlyphTypeface(new Uri("file:///C:\\WINDOWS\\Fonts\\Arial.ttf"));
-        IDictionary<int, ushort> characterMap;
         string[] infoArray;
         bool Loading = true;
         string PROLinks = "";
@@ -102,12 +96,8 @@ namespace ADD
         {
             Tools.WebBrowserHelper.FixBrowserVersion();
             tmrProcessBatch.Start();
-            characterMap = glyphTypeface.CharacterToGlyphMap;
             infoArray = "Apertus immutably stores and interprets data on blockchains.|Never build files or click links from sources you do not trust.|Send a direct message by using @ followed by Address.|Click Help, then info for assistance.|Create a Profile and start sharing your thoughts.|#keywords allow people to discover and follow your causes.|Encrypt items by creating and selecting a Vault.|Signing your archives allows people to trust you.|This is beta software use at your own risk!|Press CTRL while submitting a search to rebuild the cache.|Search by Trans ID, Address, Free Text or #Keyword|Publish your work using a profile, signature, & tip address".Split('|');
-            URLSecurityZoneAPI.InternetSetFeatureEnabled(URLSecurityZoneAPI.InternetFeaturelist.DISABLE_NAVIGATION_SOUNDS, URLSecurityZoneAPI.SetFeatureOn.PROCESS, true);
-
-
-
+            //URLSecurityZoneAPI.InternetSetFeatureEnabled(URLSecurityZoneAPI.InternetFeaturelist.DISABLE_NAVIGATION_SOUNDS, URLSecurityZoneAPI.SetFeatureOn.PROCESS, true);
         }
 
         private char GetRandomDivider()
@@ -1803,7 +1793,7 @@ namespace ADD
                             {
                                 for (int c = 0; c < buildingFile.Length; c++)
                                 {
-                                    if (!characterMap.ContainsKey(buildingFile[c])) { return false; };
+//                                    if (!characterMap.ContainsKey(buildingFile[c])) { return false; };
                                 }
                             }
 
@@ -1843,7 +1833,7 @@ namespace ADD
                     {
                         for (int c = 0; c < buildingFile.Length; c++)
                         {
-                            if (!characterMap.ContainsKey(buildingFile[c])) { return false; };
+//                            if (!characterMap.ContainsKey(buildingFile[c])) { return false; };
                         }
                     }
                     try
